@@ -93,16 +93,17 @@ body {
   border-bottom: var(--line); }
 
 .description {
-  font-size: inherit;
   background-color: #fff;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-light);
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem; }
 
 .user-reviews {
-  font-size: inherit;
-  flex: 1; }
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .logo {
   height: 3.25rem;
@@ -283,8 +284,13 @@ body {
   transition: all .2s;
   display: inline;
   cursor: pointer; }
+  .btn-inline span {
+    margin-left: 3px;
+    transition: margin-left .2s; }
   .btn-inline:hover {
     color: var(--color-grey-dark-1); }
+    .btn-inline:hover span {
+      margin-left: 8px; }
   .btn-inline:focus {
     outline: none;
     animation: pulsate 1s infinite; }
@@ -346,9 +352,12 @@ body {
   background-color: #fff;
   padding: 3rem;
   margin-bottom: 3.5rem;
-  box-shadow: var(--shadow-light); }
+  box-shadow: var(--shadow-light);
+  position: relative; }
   .review__text {
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    z-index: 10;
+    position: relative; }
   .review__user {
     display: flex;
     align-items: center; }
@@ -371,3 +380,13 @@ body {
     color: var(--color-Primary);
     font-size: 2.2rem;
     font-weight: 300; }
+  .review::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    color: var(--color-grey-light-3);
+    font-size: 20rem;
+    font-family: sans-serif;
+    z-index: 1; }
